@@ -2,7 +2,8 @@ import java.sql.*;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
+        //String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
 
         try {
             // Registers the driver
@@ -10,7 +11,8 @@ public class Main {
         }
         catch (Exception e) {
         }
-        Connection conn= DriverManager.getConnection(dbUrl, "postgres", "13701192215");
+        //Connection conn= DriverManager.getConnection(dbUrl, "postgres", "13701192215");
+        Connection conn= DriverManager.getConnection(dbUrl);
 
         try {
             Statement s=conn.createStatement();
